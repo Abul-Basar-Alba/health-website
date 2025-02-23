@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^nutrition$ pages/nutrition.php [L]
+RewriteRule ^recommendations$ pages/recommendations.php [L]
+RewriteRule ^about$ pages/about.php [L]
