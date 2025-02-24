@@ -1,18 +1,11 @@
 <?php include 'includes/header.php'; ?>
 
 <div class="container">
-<<<<<<< HEAD
-=======
 
->>>>>>> 6cb61d4 (Initial commit)
     <h1>Welcome to Health Nutrition Guide</h1>
     <form id="healthForm" action="calculate.php" method="POST">
         <label for="weight">Weight (kg):</label>
         <input type="number" id="weight" name="weight" step="0.1" required>
-<<<<<<< HEAD
-        <button type="submit">Calculate</button>
-    </form>
-=======
         <button type="submit" aria-label="Calculate nutrient needs">Calculate</button>
     </form>
     
@@ -25,7 +18,6 @@
     </div>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/style.css">
->>>>>>> 6cb61d4 (Initial commit)
 </div>
 
 <?php include 'includes/footer.php'; ?>
