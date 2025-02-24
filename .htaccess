@@ -1,4 +1,13 @@
 RewriteEngine On
+<<<<<<< HEAD
 RewriteRule ^nutrition$ pages/nutrition.php [L]
 RewriteRule ^recommendations$ pages/recommendations.php [L]
 RewriteRule ^about$ pages/about.php [L]
+=======
+RewriteRule ^$ index.php [L]
+RewriteRule ^docs$ pages/docs.php [L]
+RewriteRule ^nutrition$ pages/nutrition.php [L]
+RewriteRule ^recommendations$ pages/recommendations.php [L]
+RewriteRule ^about$ pages/about.php [L]
+RewriteRule ^contact$ pages/contact.php [L]
+>>>>>>> 6cb61d4 (Initial commit)
