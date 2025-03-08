@@ -1,7 +1,8 @@
 <?php
 include 'includes/db_connect.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+{
     // Validate input
     if (!isset($_POST['weight']) || !is_numeric($_POST['weight'])) {
         http_response_code(400);
@@ -14,6 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Perform calculations
     $protein = $weight * 0.8;
     $calcium = 1000;
+    $vitaminC = 90; // Recommended daily intake in mg
+    $vitaminD = 20; // Recommended daily intake in mcg
+    $fiber = 30; // Recommended daily intake in grams
+    $iron = 8; // Recommended daily intake in mg
+    $magnesium = 400; // Recommended daily intake in mg
+    $potassium = 3500; // Recommended daily intake in mg
+    $water = ($weight * 35); // Recommended daily water intake in ml (35 ml per kg of body weight)
     
     // Store in database
     $stmt = $conn->prepare("INSERT INTO users (weight, protein_needs, calcium_needs) VALUES (?, ?, ?)");
@@ -32,8 +40,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Return results
     echo json_encode([
-        'protein' => $protein,
-        'calcium' => $calcium
+        'protein' => $protein . 'g',
+        'calcium' => $calcium . 'mg',
+        'vitaminC' => $vitaminC. 'mg',
+        'vitaminD' => $vitaminD. 'mcg',
+        'fiber' => $fiber. 'g',
+        'iron' => $iron. 'mg',
+        'magnesium' => $magnesium. 'mg',
+        'potassium' => $potassium. 'mg',
+        'water' => $water. 'ml'
     ]);
 }
+
 ?>
