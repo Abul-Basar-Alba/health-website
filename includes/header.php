@@ -16,11 +16,11 @@
         <nav>
             <!-- Corrected Navigation Links -->
             <a href="../index.php"><i class="fas fa-home"></i> Home</a>
-            <a href="../docs.php"><i class="fas fa-book"></i> Docs</a>
-            <a href="../nutrition.php"><i class="fas fa-apple-alt"></i> Nutrition</a>
-            <a href="../recommendations.php"><i class="fas fa-clipboard-list"></i> Recommendations</a>
-            <a href="../about.php"><i class="fas fa-info-circle"></i> About</a>
-            <a href="../contact.php"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="../pages/docs.php"><i class="fas fa-book"></i> Docs</a>
+            <a href="../pages/nutrition.php"><i class="fas fa-apple-alt"></i> Nutrition</a>
+            <a href="../pages/recommendations.php"><i class="fas fa-clipboard-list"></i> Recommendations</a>
+            <a href="../pages/about.php"><i class="fas fa-info-circle"></i> About</a>
+            <a href="../pages/contact.php"><i class="fas fa-envelope"></i> Contact</a>
         </nav>
     </header>
 </body>
