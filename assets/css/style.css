@@ -106,7 +106,7 @@ footer a:hover {
         margin-bottom: 15px;
     }
 }
-
+/* docs Page Styles */
 .docs-container {
     max-width: 1000px;
     margin: 40px auto;
@@ -135,9 +135,11 @@ footer a:hover {
     font-size: 1.8em;
     margin-bottom: 20px;
     position: relative;
+    text-align: center;
 }
 
 .docs-container h2::after {
+    color: hwb(279 4% 47%);
     content: '';
     position: absolute;
     bottom: -5px;
@@ -145,12 +147,69 @@ footer a:hover {
     width: 50px;
     height: 3px;
     background: #4CAF50;
+    text-align: left;
+    
 }
 
 .docs-container ul,
 .docs-container ol {
     margin-left: 20px;
     line-height: 1.6;
+    text-align: left;
+}
+
+.docs-container p,
+.docs-container ol {
+    text-align: left;
+}
+
+.docs-container .contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.docs-container .contact-button i {
+    transition: transform 0.3s ease;
+}
+
+.docs-container .contact-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.docs-container .contact-button:hover::before {
+    left: 100%;
+}
+
+.docs-container .contact-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+}
+
+.docs-container .contact-button:hover i {
+    transform: translateX(5px);
+}
+
+.docs-container .contact-button:active {
+    transform: translateY(-1px);
 }
 
 /* General Styles */
@@ -721,6 +780,14 @@ footer a:hover {
 }
 
 /* Food Items Section Styles */
+.container li {
+    text-align: left;
+}
+.container p {
+    text-align: left;
+    color: #000000;
+}
+
 .food-item {
     margin-bottom: 30px;
     padding: 20px;
@@ -730,8 +797,8 @@ footer a:hover {
 }
 
 .food-item img {
-    width: 150px; /* Set a fixed width */
-    height: 150px; /* Set a fixed height */
+    width: 500px; /* Set a fixed width */
+    height: 500px; /* Set a fixed height */
     object-fit: cover; /* Ensure the image covers the area */
     display: block;
     margin: 0 auto;
@@ -745,8 +812,9 @@ footer a:hover {
 }
 
 .food-item p {
-    color: #666;
+    color: #000000;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 
