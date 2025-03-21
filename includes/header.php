@@ -15,7 +15,7 @@
     <header>
         <nav>
             <!-- Corrected Navigation Links -->
-            <a href="../index.php"><i class="fas fa-home"></i> Home</a>
+            <a href="../home.php"><i class="fas fa-home"></i> Home</a>
             <a href="../pages/docs.php"><i class="fas fa-book"></i> Docs</a>
             <a href="../pages/nutrition.php"><i class="fas fa-apple-alt"></i> Nutrition</a>
             <a href="../pages/recommendations.php"><i class="fas fa-clipboard-list"></i> Recommendations</a>

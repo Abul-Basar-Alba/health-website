@@ -269,6 +269,38 @@ section {
     box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
 }
 
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
 /* CTA Section Styles */
 .cta-section {
     text-align: center;
@@ -407,18 +439,21 @@ section {
 .home-contact-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center; /* Center content horizontally */
     gap: 10px;
     padding: 15px 30px;
     background: linear-gradient(45deg, #4CAF50, #45a049);
-    color: white;
+    color: white !important; /* Force text color to white */
     text-decoration: none;
     border-radius: 25px;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.1em !important; /* Force font size */
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
-    position: relative;
+    position: fixed;
     overflow: hidden;
+    min-width: 120px; /* Ensure minimum width */
+
 }
 
 .home-contact-btn i {
@@ -427,13 +462,14 @@ section {
 
 .home-contact-btn::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
+    z-index: -1; /* Ensure pseudo-element stays behind the text */
 }
 
 .home-contact-btn:hover::before {
@@ -637,7 +673,7 @@ footer a:hover {
 
 /* Animation */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(0px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -906,77 +942,71 @@ footer a:hover {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Login and Sign-up Page Styles */
-.login-container, .signup-container {
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.8s ease;
+/*login page styles*/
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #0a1930;
+    overflow: hidden;
 }
 
-.login-container h1, .signup-container h1 {
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #0a1930;
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    color: #4CAF50;
-    margin-bottom: 20px;
+    color: #64ffda;
 }
 
-.form-group {
-    margin-bottom: 20px;
+/* Add styles for form elements */
+.form-container {
+    position: relative;
+    z-index: 2;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
+.btn {
+    position: relative;
+    z-index: 2;
     transition: all 0.3s ease;
 }
 
-.form-group input:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
-    outline: none;
-}
-
-.login-btn, .signup-btn {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(45deg, #4CAF50, #45a049);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.login-btn:hover, .signup-btn:hover {
+.btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
 }
 
-.login-container p, .signup-container p {
-    text-align: center;
-    color: #666;
-    margin-top: 20px;
+.home-button, .toggle-buttons {
+    z-index: 2;
 }
 
-.login-container a, .signup-container a {
-    color: #4CAF50;
-    text-decoration: none;
-    transition: color 0.3s ease;
+/* Form input styling */
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
-.login-container a:hover, .signup-container a:hover {
-    color: #45a049;
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #64ffda;
+    color: #ffffff;
+    box-shadow: 0 0 0 0.2rem rgba(100, 255, 218, 0.25);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
