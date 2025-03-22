@@ -4,6 +4,9 @@ body {
     padding: 0;
     background-color: #f0f8ff;
     padding-bottom: 100px;
+    overflow-y: auto; /* Make the page scrollable */
+    background: url('../images/diet-background.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 header {
@@ -45,7 +48,7 @@ nav a i {
     max-width: 800px;
     margin: 40px auto;
     padding: 30px;
-    background: white;
+    background: rgba(255, 255, 255, 0.8); /* Add transparency to the container background */
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     animation: fadeIn 0.8s ease;
@@ -536,7 +539,7 @@ nav a i {
     max-width: 800px;
     margin: 40px auto;
     padding: 30px;
-    background: white;
+    background: rgba(255, 255, 255, 0.8); /* Add transparency to the container background */
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     animation: fadeIn 0.8s ease;
@@ -751,7 +754,7 @@ footer a:hover {
     max-width: 800px;
     margin: 50px auto;
     padding: 30px;
-    background: white;
+    background: rgba(255, 255, 255, 0.8); /* Add transparency to the container background */
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -902,7 +905,7 @@ footer a:hover {
     max-width: 800px;
     margin: 40px auto;
     padding: 30px;
-    background: white;
+    background: rgba(255, 255, 255, 0.8); /* Add transparency to the container background */
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.8s ease;
@@ -1009,4 +1012,60 @@ body, html {
 
 .form-control::placeholder {
     color: rgba(255, 255, 255, 0.6);
+}
+/* Signup Page Styles */
+.signup-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.signup-container h1 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+.signup-container p {
+    margin-top: 20px;
+    color: #666;
+}
+.signup-container a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+.signup-container a:hover {
+    text-decoration: underline;
+}
+
+/* Login and Signup Page Styles */
+.login-container, .signup-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h1, .signup-container h1 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.login-container p, .signup-container p {
+    margin-top: 20px;
+    color: #666;
+}
+
+.login-container a, .signup-container a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.login-container a:hover, .signup-container a:hover {
+    text-decoration: underline;
 }

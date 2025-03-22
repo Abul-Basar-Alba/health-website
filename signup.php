@@ -1,6 +1,6 @@
 <?php include 'includes/header.php'; ?>
 
-<div class="container">
+<div class="signup-container">
     <h1>Sign Up</h1>
     <form action="signup_process.php" method="POST">
         <div class="form-group">

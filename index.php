@@ -3,35 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Website</title>
+    <title>Welcome to Health Nutrition Guide</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden;
-        }
-
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #0a192f, #112240, #1a365d);
-            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            background: url('assets/images/diet-background.jpg') no-repeat center center fixed;
             background-size: cover;
+            color: #64ffda;
+            overflow-y: auto; /* Make the page scrollable */
         }
 
         .content {
             position: relative;
             z-index: 1;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #64ffda;
+            padding: 20px;
         }
 
         .welcome-text {
@@ -116,92 +112,18 @@
     </style>
 </head>
 <body>
-    <!-- Particles.js Container -->
-    <div id="particles-js"></div>
+    <?php include 'includes/header.php'; ?>
 
     <!-- Content -->
     <div class="content">
-        <h1 class="welcome-text">Welcome to My Website</h1>
-        <p class="code-text">&lt;code&gt; Your Journey Starts Here &lt;/code&gt;</p>
-        <p class="sub-text typing-effect">Explore the world of coding with us</p>
+        <h1 class="welcome-text">Welcome to Health Nutrition Guide</h1>
+        <p class="sub-text typing-effect">Explore our resources on nutrition, diet, and healthy living</p>
         <div class="auth-buttons">
             <a href="login.php" class="btn btn-light">Login</a>
-            <a href="login.php?form=signup" class="btn btn-outline-light">Sign Up</a>
+            <a href="signup.php" class="btn btn-outline-light">Sign Up</a>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS('particles-js',
-        {
-            "particles": {
-                "number": {
-                    "value": 100,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#64ffda"
-                },
-                "shape": {
-                    "type": ["circle", "triangle", "edge"],
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": true
-                },
-                "size": {
-                    "value": 3,
-                    "random": true
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#64ffda",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 4,
-                    "direction": "none",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 140,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-    </script>
+    <?php include 'includes/footer.php'; ?>
 </body>
-</html> 
+</html>
