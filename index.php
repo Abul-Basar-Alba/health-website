@@ -18,6 +18,17 @@
             overflow-y: auto; /* Make the page scrollable */
         }
 
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7; /* Reduce opacity */
+            z-index: -1; /* Place the image behind the content */
+        }
+
         .content {
             position: relative;
             z-index: 1;
@@ -113,6 +124,7 @@
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
+    <img src="assets/index_image/download.jpeg" alt="Diet Background" class="bg-image">
 
     <!-- Content -->
     <div class="content">
