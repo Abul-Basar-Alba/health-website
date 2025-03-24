@@ -19,5 +19,7 @@
     </form>
     <p>Already have an account? <a href="login.php">Login here</a></p>
 </div>
+<link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
 <?php include 'includes/footer.php'; ?>
