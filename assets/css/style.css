@@ -1074,9 +1074,38 @@ body, html {
 body.login-page, html.login-page {
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100%; /* Ensure the page takes full height */
     background: #0a1930;
-    overflow: hidden;
+    overflow-y: auto; /* Allow scrolling */
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h1 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.login-container p {
+    margin-top: 20px;
+    color: #666;
+}
+
+.login-container a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
 }
 
 #particles-js {
@@ -1134,4 +1163,21 @@ body.login-page, html.login-page {
 
 .form-control::placeholder {
     color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive Design for Login Page */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .login-container h1 {
+        font-size: 1.5em;
+    }
+
+    .btn {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
 }

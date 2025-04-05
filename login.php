@@ -16,8 +16,8 @@
         </form>
         <p>Don't have an account? <a href="signup.php">Sign up here</a></p>
     </div>
+    <!-- Ensure only the correct CSS file is linked -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
 </body>
 
 <?php include 'includes/footer.php'; ?>
