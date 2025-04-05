@@ -1,3 +1,4 @@
+<?php include 'includes/index_header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,21 @@
     <title>Welcome to Health Nutrition Guide</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    
+</head>
+<body>
+    
+    <img src="assets/index_image/download.jpeg" alt="Diet Background" class="bg-image">
+
+    <!-- Content -->
+    <div class="content">
+        <h1 class="welcome-text">Welcome to Health Nutrition Guide</h1>
+        <p class="sub-text typing-effect">Explore our resources on nutrition, diet, and healthy living</p>
+        <div class="auth-buttons">
+            <a href="login.php" class="btn btn-light">Login</a>
+            <a href="signup.php" class="btn btn-outline-light">Sign Up</a>
+        </div>
+    </div>
     <style>
         body, html {
             margin: 0;
@@ -121,21 +137,6 @@
             50% { opacity: 0; }
         }
     </style>
-</head>
-<body>
-    <?php include 'includes/header.php'; ?>
-    <img src="assets/index_image/download.jpeg" alt="Diet Background" class="bg-image">
-
-    <!-- Content -->
-    <div class="content">
-        <h1 class="welcome-text">Welcome to Health Nutrition Guide</h1>
-        <p class="sub-text typing-effect">Explore our resources on nutrition, diet, and healthy living</p>
-        <div class="auth-buttons">
-            <a href="login.php" class="btn btn-light">Login</a>
-            <a href="signup.php" class="btn btn-outline-light">Sign Up</a>
-        </div>
-    </div>
-
-    <?php include 'includes/footer.php'; ?>
 </body>
 </html>
+<?php include 'includes/footer.php'; ?>

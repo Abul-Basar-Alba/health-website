@@ -1181,3 +1181,31 @@ body.login-page, html.login-page {
         padding: 10px 20px;
     }
 }
+
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto; /* Ensure scrolling is enabled */
+}
+
+/* Remove conflicting styles */
+body.login-page, html.login-page,
+body.signup-page, html.signup-page {
+    overflow-y: auto; /* Ensure scrolling for login and signup pages */
+}
+
+/* ...existing code... */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto !important; /* Force scrolling globally */
+}
+/* Remove conflicting styles */
+body.login-page, html.login-page,
+body.signup-page, html.signup-page {
+    overflow-y: auto !important; /* Ensure scrolling for specific pages */
+}
+/* ...existing code... */
