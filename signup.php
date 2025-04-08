@@ -1,4 +1,4 @@
-<?php include 'includes/header.php'; ?>
+<?php include 'includes/index_header.php'; ?>
 
 <body class="signup-page">
     <div class="signup-container">

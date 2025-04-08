@@ -66,7 +66,7 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    position: fixed;
+    position: relative; /* Change from fixed to relative */
     bottom: 0;
     width: 100%;
 }
@@ -550,7 +550,7 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    position: fixed;
+    position: relative; /* Change from fixed to relative */
     bottom: 0;
     width: 100%;
 }
@@ -1196,16 +1196,37 @@ body.signup-page, html.signup-page {
     overflow-y: auto; /* Ensure scrolling for login and signup pages */
 }
 
-/* ...existing code... */
-body, html {
+/* Ensure all pages are scrollable */
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow-y: auto !important; /* Force scrolling globally */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
-/* Remove conflicting styles */
+
+/* Remove conflicting styles for specific pages */
 body.login-page, html.login-page,
 body.signup-page, html.signup-page {
-    overflow-y: auto !important; /* Ensure scrolling for specific pages */
+    overflow-y: auto !important; /* Ensure scrolling for login and signup pages */
 }
-/* ...existing code... */
+
+/* Ensure responsive design for all pages */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 20px 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+}

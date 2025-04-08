@@ -17,7 +17,6 @@
         </a>
     </div>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
 </div>
 
 <?php include 'includes/footer.php'; ?>
