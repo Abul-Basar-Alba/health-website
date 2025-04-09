@@ -10,29 +10,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         exit;
     }
 
-    
     $weight = floatval($_POST['weight']);
     
     // Perform calculations
     $protein = $weight * 0.8;
     $calcium = 1000;
-    $vitaminC = 90; // Recommended daily intake in mg
-    $vitaminD = 20; // Recommended daily intake in mcg
-    $fiber = 30; // Recommended daily intake in grams
-    $iron = 8; // Recommended daily intake in mg
-    $magnesium = 400; // Recommended daily intake in mg
-    $potassium = 3500; // Recommended daily intake in mg
-    $water = ($weight * 35); // Recommended daily water intake in ml (35 ml per kg of body weight)
-    
+    $vitaminC = 90;
+    $vitaminD = 20;
+    $fiber = 30;
+    $iron = 8;
+    $magnesium = 400;
+    $potassium = 3500;
+    $water = ($weight * 35);
+
     // Store in database
-    $stmt = $conn->prepare("INSERT INTO users (weight, protein_needs, calcium_needs) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (weight, protein_needs, calcium_needs, vitaminC_needs, vitaminD_needs, fiber_needs, iron_needs, magnesium_needs, potassium_needs, water_needs) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     if (!$stmt) {
         http_response_code(500);
         echo json_encode(['error' => 'Database preparation failed']);
         exit;
     }
     
-    $stmt->bind_param("ddd", $weight, $protein, $calcium);
+    $stmt->bind_param("dddddddddd", $weight, $protein, $calcium, $vitaminC, $vitaminD, $fiber, $iron, $magnesium, $potassium, $water);
     if (!$stmt->execute()) {
         http_response_code(500);
         echo json_encode(['error' => 'Database insertion failed']);
