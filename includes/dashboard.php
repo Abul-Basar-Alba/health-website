@@ -1,5 +1,7 @@
-<?php include 'db.php'; ?>
-<?php 
+<?php
+session_start(); // Ensure session is started
+include 'db.php'; 
+
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit();
