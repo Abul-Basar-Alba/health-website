@@ -1,4 +1,7 @@
-<?php include 'includes/index_header.php'; ?>
+<?php 
+session_start(); // Start the session
+include 'includes/index_header.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +13,20 @@
     
 </head>
 <body>
+    <header>
+        <nav>
+            <?php if (isset($_SESSION['user'])): ?>
+                <a href="home.php">Home</a>
+                <a href="pages/docs.php">Docs</a>
+                <a href="pages/nutrition.php">Nutrition</a>
+                <a href="pages/recommendations.php">Recommendations</a>
+                <a href="pages/about.php">About</a>
+                <a href="pages/contact.php">Contact</a>
+            <?php else: ?>
+                <p style="color: red; text-align: center;">Please log in or sign up to access the navigation links.</p>
+            <?php endif; ?>
+        </nav>
+    </header>
     
     <img src="assets/index_image/download.jpeg" alt="Diet Background" class="bg-image">
 
