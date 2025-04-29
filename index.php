@@ -1,7 +1,4 @@
-<?php 
-session_start(); // Start the session
-include 'includes/index_header.php'; 
-?>
+<?php include 'includes/index_header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,22 +10,8 @@ include 'includes/index_header.php';
     
 </head>
 <body>
-    <header>
-        <nav>
-            <?php if (isset($_SESSION['user'])): ?>
-                <a href="home.php">Home</a>
-                <a href="pages/docs.php">Docs</a>
-                <a href="pages/nutrition.php">Nutrition</a>
-                <a href="pages/recommendations.php">Recommendations</a>
-                <a href="pages/about.php">About</a>
-                <a href="pages/contact.php">Contact</a>
-            <?php else: ?>
-                <p style="color: red; text-align: center;">Please log in or sign up to access the navigation links.</p>
-            <?php endif; ?>
-        </nav>
-    </header>
     
-    <img src="assets/index_image/download.jpeg" alt="Diet Background" class="bg-image">
+    <img src="assets/index_image/images.jpeg" alt="Diet Background" class="bg-image">
 
     <!-- Content -->
     <div class="content">
@@ -58,7 +41,7 @@ include 'includes/index_header.php';
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.7; /* Reduce opacity */
+            opacity: 1; /* Reduce opacity */
             z-index: -1; /* Place the image behind the content */
         }
 
