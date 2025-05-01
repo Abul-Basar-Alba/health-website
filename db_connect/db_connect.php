@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 }
 ?>
 <?php
-//session_start();
+session_start();
 $host = 'localhost';
 $user = 'root';
 $pass = '';
