@@ -1,8 +1,9 @@
-<?php include '../header.php'; ?>
+<?php include '../includes/header.php'; ?>
+
 
 <div class="container docs-container">
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/style.css">
+<!-- <link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css"> -->
     <h1>Diet Documentation</h1>
     
     <section>
@@ -256,4 +257,4 @@ longer, healthier life.<br><br>
     
 </div>
 
-<?php include '..footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

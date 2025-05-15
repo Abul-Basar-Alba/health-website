@@ -1,30 +1,27 @@
 <?php
 session_start();
-include 'includes/index_header.php';
+include '../includes/header.php';
 
-// Check if user is logged in
-if (!isset($_SESSION['id'])) {
-    header("Location: login.php");
-    exit;
-}
-
-// Check if results are available
 if (!isset($_SESSION['nutrition_results'])) {
-    header("Location: index.php");
+    header("Location: ../home.php");
     exit;
 }
 
 $results = $_SESSION['nutrition_results'];
 ?>
 
-<link rel="stylesheet" href="assets/css/style.css">
-
 <div class="container">
     <h1>Your Health and Nutrition Report</h1>
     
-    <!-- Health Condition -->
     <div class="result-section">
         <h2>Health Condition</h2>
+        <?php if ($results['user_id']): ?>
+            <p><strong>User ID:</strong> <?php echo htmlspecialchars($results['user_id']); ?></p>
+        <?php endif; ?>
+        <p><strong>Weight:</strong> <?php echo $results['weight']; ?> kg</p>
+        <p><strong>Height:</strong> <?php echo $results['height']; ?> cm</p>
+        <p><strong>Age:</strong> <?php echo $results['age']; ?></p>
+        <p><strong>Gender:</strong> <?php echo ucfirst($results['gender']); ?></p>
         <p><strong>BMI:</strong> <?php echo $results['bmi']; ?></p>
         <p><strong>Health Status:</strong> <?php echo $results['health_condition']; ?></p>
         <p><strong>BMR (Basal Metabolic Rate):</strong> <?php echo $results['bmr']; ?> kcal/day</p>
@@ -43,7 +40,6 @@ $results = $_SESSION['nutrition_results'];
         <p><strong>Recommendation:</strong> <?php echo $bmi_message; ?></p>
     </div>
 
-    <!-- Nutrient Needs -->
     <div class="result-section">
         <h2>Daily Nutrient Needs</h2>
         <table class="nutrient-table">
@@ -100,14 +96,13 @@ $results = $_SESSION['nutrition_results'];
         </table>
     </div>
 
-    <!-- Navigation to Nutrition Info -->
     <div class="cta-section">
         <h2>Learn More About Nutrition</h2>
         <p>Discover the importance of these nutrients and recommended foods to meet your needs.</p>
-        <a href="pages/nutrition.php" class="home-contact-btn" aria-label="View nutrition information">
+        <a href="nutrition.php" class="home-contact-btn" aria-label="View nutrition information">
             <i class="fas fa-info-circle"></i> Explore Nutrition Guide
         </a>
     </div>
 </div>
 
-<?php include 'includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

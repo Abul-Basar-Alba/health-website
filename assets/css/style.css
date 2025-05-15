@@ -1,13 +1,27 @@
-body {
-    font-family: Arial, sans-serif;
+/* General Styles */
+/* General Styles */
+body, html {
     margin: 0;
     padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
     background-color: #f0f8ff;
-    padding-bottom: 100px;
-    overflow-y: auto; /* Make the page scrollable */
+    overflow-y: auto;
     background: url('../images/diet-background.jpg') no-repeat center center fixed;
     background-size: cover;
+    color: #333;
 }
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 
 header {
     background-color: #4CAF50;
@@ -18,12 +32,13 @@ header {
 
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 20px;
+    background-color: #4CAF50;
 }
 
-nav a {
+nav .main-nav a {
     color: white;
     text-decoration: none;
     padding: 10px 20px;
@@ -35,30 +50,75 @@ nav a {
     gap: 8px;
 }
 
-nav a:hover {
+nav .main-nav a:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
 }
 
-nav a i {
+nav .main-nav a i {
     font-size: 1.2em;
+}
+
+nav .auth-nav {
+    display: flex;
+    gap: 10px;
+}
+
+nav .auth-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav .auth-nav a:hover {
+    background-color: #555;
 }
 
 .container {
     max-width: 800px;
     margin: 40px auto;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.8); /* Add transparency to the container background */
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.8s ease;
+    text-align: center;
 }
 
-.container img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+.container h1 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.container h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+.container p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.container ul {
+    margin-left: 20px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.container a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.container a:hover {
+    color: #45a049;
 }
 
 footer {
@@ -66,7 +126,7 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    position: relative; /* Change from fixed to relative */
+    position: relative;
     bottom: 0;
     width: 100%;
 }
@@ -96,180 +156,6 @@ footer a:hover {
 
 .contact-info p {
     margin: 5px 0;
-}
-
-/* Make the layout responsive */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .contact-info {
-        margin-bottom: 15px;
-    }
-}
-/* docs Page Styles */
-.docs-container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    animation: fadeIn 0.8s ease-in;
-}
-
-.docs-container section {
-    margin-bottom: 40px;
-    padding: 20px;
-    border-left: 4px solid #4CAF50;
-    background: #f9f9f9;
-    border-radius: 0 10px 10px 0;
-    transition: transform 0.3s ease;
-}
-
-.docs-container section:hover {
-    transform: translateX(10px);
-}
-
-.docs-container h2 {
-    color: #2e7d32;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    position: relative;
-    text-align: center;
-}
-
-.docs-container h2::after {
-    color: hwb(279 4% 47%);
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background: #4CAF50;
-    text-align: left;
-    
-}
-
-.docs-container ul,
-.docs-container ol {
-    margin-left: 20px;
-    line-height: 1.6;
-    text-align: left;
-}
-
-.docs-container p,
-.docs-container ol {
-    text-align: left;
-}
-
-.docs-container .contact-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 30px;
-    background: linear-gradient(45deg, #4CAF50, #45a049);
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.docs-container .contact-button i {
-    transition: transform 0.3s ease;
-}
-
-.docs-container .contact-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-}
-
-.docs-container .contact-button:hover::before {
-    left: 100%;
-}
-
-.docs-container .contact-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
-}
-
-.docs-container .contact-button:hover i {
-    transform: translateX(5px);
-}
-
-.docs-container .contact-button:active {
-    transform: translateY(-1px);
-}
-
-/* General Styles */
-h1, h2 {
-    color: #4CAF50;
-}
-
-section {
-    margin-bottom: 30px;
-}
-
-/* Form Styles */
-#healthForm {
-    background: #f8f9fa;
-    padding: 25px;
-    border-radius: 10px;
-    margin: 20px 0;
-}
-
-#healthForm label {
-    font-size: 1.1em;
-    color: #333;
-    margin-bottom: 10px;
-    display: block;
-}
-
-#healthForm input {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-#healthForm input:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
-    outline: none;
-}
-
-#healthForm button {
-    background: linear-gradient(45deg, #4CAF50, #45a049);
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-    width: 100%;
-}
-
-#healthForm button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
 }
 
 /* Form Styles */
@@ -281,198 +167,119 @@ section {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    color: #333;
 }
 
-.form-group input {
+.form-group input, .form-group select, .form-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
+    outline: none;
 }
 
 .btn-primary {
-    background-color: #4CAF50;
-    color: white;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 16px;
 }
 
 .btn-primary:hover {
-    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
 }
 
-/* CTA Section Styles */
-.cta-section {
-    text-align: center;
-    margin-top: 40px;
-    padding: 30px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    border-left: 4px solid #4CAF50;
+.btn-secondary {
+    background-color: #6c757d;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
 }
 
-.cta-section h2 {
-    color: #2e7d32;
-    margin-bottom: 15px;
-}
-
-.cta-section p {
-    color: #666;
-    margin-bottom: 25px;
-    font-size: 1.1em;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        flex-wrap: wrap;
-    }
-    
-    nav a {
-        margin: 5px;
-        font-size: 0.9em;
-    }
-    
-    .container {
-        margin: 20px;
-        padding: 20px;
-    }
-    
-    h1 {
-        font-size: 24px;
-    }
-    
-    .cta-section {
-        padding: 20px;
-    }
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
 }
 
 /* Home Page Styles */
-.contact-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 15px 30px;
+.form-section, .history-section, .nutrition-link {
+    margin: 20px 0;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.history-table th, .history-table td {
+    border: 1px solid #ffffff;
+    padding: 8px;
+    text-align: left;
+}
+
+.history-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.nutrient-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.nutrient-table th, .nutrient-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.nutrient-table th {
     background-color: #4CAF50;
     color: white;
+}
+
+.home-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
     text-decoration: none;
-    border-radius: 50px;
-    font-size: 18px;
-    font-weight: bold;
+    border-radius: 25px;
+    font-size: 16px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
-.contact-button .button-icon {
-    margin-left: 10px;
-    transition: transform 0.3s ease;
-}
-
-.contact-button:hover {
-    background-color: #45a049;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transform: translateY(-3px);
-}
-
-.contact-button:hover .button-icon {
-    transform: translateX(5px);
-}
-
-/* Docs Page Styles */
-.docs-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease;
-}
-
-.docs-section {
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
-}
-
-.docs-section h2 {
-    color: #4CAF50;
-    margin-bottom: 15px;
-}
-
-.docs-section p {
-    line-height: 1.6;
-    color: #555;
-}
-
-.docs-section ol {
-    padding-left: 20px;
-}
-
-.docs-section ol li {
-    margin-bottom: 10px;
-    color: #555;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container, .docs-container {
-        padding: 15px;
-        margin: 20px 10px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    .contact-button, .submit-button {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-}
-
-/* Contact Button Styles */
-.home-contact-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center; /* Center content horizontally */
-    gap: 10px;
-    padding: 15px 30px;
-    background: linear-gradient(45deg, #4CAF50, #45a049);
-    color: white !important; /* Force text color to white */
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 1.1em !important; /* Force font size */
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
-    position: fixed;
-    overflow: hidden;
-    min-width: 120px; /* Ensure minimum width */
-
-}
-
-.home-contact-btn i {
-    transition: transform 0.3s ease;
-}
-
 .home-contact-btn::before {
     content: '';
-    position: fixed;
+    position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
-    z-index: -1; /* Ensure pseudo-element stays behind the text */
 }
 
 .home-contact-btn:hover::before {
@@ -481,576 +288,23 @@ section {
 
 .home-contact-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.home-contact-btn i {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
 }
 
 .home-contact-btn:hover i {
     transform: translateX(5px);
 }
 
-.home-contact-btn:active {
-    transform: translateY(-1px);
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f8ff;
-    padding-bottom: 100px;
-}
-
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-nav a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-}
-
-nav a i {
-    font-size: 1.2em;
-}
-
-.container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.8); /* Add transparency to the container background */
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    animation: fadeIn 0.8s ease;
-}
-
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: relative; /* Change from fixed to relative */
-    bottom: 0;
-    width: 100%;
-}
-
-footer a {
-    color: #4CAF50;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #45a049;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.contact-info h3 {
-    margin-bottom: 10px;
-    color: #4CAF50;
-}
-
-.contact-info p {
-    margin: 5px 0;
-}
-/* Contact Page Styles */
-.contact-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.8s ease;
-}
-
-.contact-container h1 {
-    color: #4CAF50;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.contact-container h1 i {
-    margin-right: 10px;
-}
-
-.contact-intro {
-    text-align: center;
-    color: #666;
-    margin-bottom: 30px;
-    font-size: 1.1em;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.form-group label {
-    font-weight: bold;
-    color: #333;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.form-group label i {
-    color: #4CAF50;
-}
-
-.form-group input,
-.form-group textarea {
-    padding: 12px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
-    outline: none;
-}
-
-.contact-form button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 15px;
-    background: linear-gradient(45deg, #4CAF50, #45a049);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.contact-form button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
-}
-
-.contact-form button i {
-    font-size: 1.2em;
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(0px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Submit Contact Page Styles */
-.submit-contact-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    animation: fadeIn 0.8s ease;
-}
-
-.submit-contact-container h1 {
-    color: #4CAF50;
-    margin-bottom: 20px;
-}
-
-.submit-contact-container p {
-    color: #666;
-    font-size: 1.1em;
-    margin-bottom: 30px;
-}
-
-.submit-contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.submit-contact-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-}
-
-.submit-contact-btn:hover::before {
-    left: 100%;
-}
-
-.submit-contact-btn:hover {
-    background-color: #45a049;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.submit-contact-btn i {
-    font-size: 1.2em;
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Submit Contact Page Styles */
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.8); /* Add transparency to the container background */
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    animation: fadeIn 0.8s ease;
-}
-
-.container h1 {
-    color: #4CAF50;
-    margin-bottom: 20px;
-}
-
-.container p {
-    color: #666;
-    font-size: 1.1em;
-    margin-bottom: 30px;
-}
-
-.home-contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.home-contact-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-}
-
-.home-contact-btn:hover::before {
-    left: 100%;
-}
-
-.home-contact-btn:hover {
-    background-color: #45a049;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.home-contact-btn i {
-    font-size: 1.2em;
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Food Items Section Styles */
-.container li {
-    text-align: left;
-}
-.container p {
-    text-align: left;
-    color: #000000;
-}
-
-.food-item {
-    margin-bottom: 30px;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.food-item img {
-    width: 500px; /* Set a fixed width */
-    height: 500px; /* Set a fixed height */
-    object-fit: cover; /* Ensure the image covers the area */
-    display: block;
-    margin: 0 auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.food-item h3 {
-    color: #4CAF50;
-    margin-bottom: 10px;
-}
-
-.food-item p {
-    color: #000000;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-/* About Page Styles */
-.about-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.8s ease;
-}
-
-.about-container h1 {
-    text-align: center;
-    color: #4CAF50;
-    margin-bottom: 20px;
-}
-
-.about-container h2 {
-    color: #2e7d32;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.about-container p {
-    color: #666;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    text-align: left;
-}
-
-.about-container ul {
-    margin-left: 20px;
-    line-height: 1.6;
-    text-align: left;
-}
-
-.about-container a {
-    color: #4CAF50;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.about-container a:hover {
-    color: #45a049;
-}
-.container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.8); /* Add transparency to the container background */
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.8s ease;
-}
-.container h1 {
-    text-align: center;
-    color: #4CAF50;
-    margin-bottom: 20px;
-}
-.container h2 {
-    color: #2e7d32;
-    margin-bottom: 15px;
-    text-align: center;
-}
-.container p {
-    color: #666;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    text-align: left;
-}
-.container ul {
-    margin-left: 20px;
-    line-height: 1.6;
-    text-align: left;
-}
-.container a {
-    color: #4CAF50;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.container a:hover {
-    color: #45a049;
-}
-/* Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/*login page styles*/
-
-/* Login Page Styles
-body.login-page, html.login-page {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-    background: #0a1930; 
-    overflow-y: auto;
-} */
-
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: #0a1930;
-    overflow: hidden;
-}
-
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #0a1930;
-    z-index: 0;
-}
-
-.content {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #64ffda;
-}
-
-/* Add styles for form elements */
-.form-container {
-    position: relative;
-    z-index: 2;
-}
-
-.btn {
-    position: relative;
-    z-index: 2;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
-}
-
-.home-button, .toggle-buttons {
-    z-index: 2;
-}
-
-/* Form input styling */
-
-.form-control {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-}
-
-.form-control:focus {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: #64ffda;
-    color: #ffffff;
-    box-shadow: 0 0 0 0.2rem rgba(100, 255, 218, 0.25);
-}
-
-.form-control::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-/* Signup Page Styles */
-.signup-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.signup-container h1 {
-    color: #4CAF50;
-    margin-bottom: 20px;
-}
-.signup-container p {
-    margin-top: 20px;
-    color: #666;
-}
-.signup-container a {
-    color: #4CAF50;
-    text-decoration: none;
-}
-.signup-container a:hover {
-    text-decoration: underline;
-}
-
 /* Login and Signup Page Styles */
+body.login-page, body.signup-page {
+    background: #0a1930;
+    overflow-y: auto;
+}
 
 .login-container, .signup-container {
     max-width: 400px;
@@ -1081,42 +335,21 @@ body, html {
     text-decoration: underline;
 }
 
-/* Login Page Styles */
-body.login-page, html.login-page {
-    margin: 0;
-    padding: 0;
-    min-height: 100%; /* Ensure the page takes full height */
-    background: #0a1930;
-    overflow-y: auto; /* Allow scrolling */
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
-.login-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #64ffda;
+    color: #ffffff;
+    box-shadow: 0 0 0 0.2rem rgba(100, 255, 218, 0.25);
 }
 
-.login-container h1 {
-    color: #4CAF50;
-    margin-bottom: 20px;
-}
-
-.login-container p {
-    margin-top: 20px;
-    color: #666;
-}
-
-.login-container a {
-    color: #4CAF50;
-    text-decoration: none;
-}
-
-.login-container a:hover {
-    text-decoration: underline;
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 #particles-js {
@@ -1136,94 +369,345 @@ body.login-page, html.login-page {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #64ffda;
+    padding: 20px;
 }
 
-.form-container {
-    position: relative;
-    z-index: 2;
+/* Docs Page Styles */
+.docs-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease;
 }
 
-.btn {
+.docs-container section {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-left: 4px solid #4CAF50;
+    background: #f9f9f9;
+    border-radius: 0 10px 10px 0;
+    transition: transform 0.3s ease;
+}
+
+.docs-container section:hover {
+    transform: translateX(10px);
+}
+
+.docs-container h2 {
+    color: #2e7d32;
+    font-size: 1.8em;
+    margin-bottom: 20px;
     position: relative;
-    z-index: 2;
+    text-align: center;
+}
+
+.docs-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: #4CAF50;
+}
+
+.docs-container ul, .docs-container ol {
+    margin-left: 20px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.docs-container p {
+    text-align: left;
+}
+
+/* Contact Page Styles */
+.contact-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease;
+}
+
+.contact-container h1 {
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-intro {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
 }
 
-.home-button, .toggle-buttons {
-    z-index: 2;
+/* Submit Contact Page Styles */
+.submit-contact-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.8s ease;
 }
 
-.form-control {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ffffff;
+.submit-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.form-control:focus {
-    background: rgba(255, 255, 255, 0.15);
+.submit-contact-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* About Page Styles */
+.about-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease;
+}
+
+/* Food Items Section Styles */
+.food-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.food-item img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.food-item h3 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.food-item p {
+    color: #666;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Index Page Styles */
+.bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    z-index: -1;
+}
+
+.welcome-text {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease-out;
+    font-weight: bold;
+}
+
+.sub-text {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease-out 0.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    color: #8892b0;
+}
+
+.auth-buttons {
+    animation: fadeInUp 1s ease-out 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.auth-buttons .btn {
+    margin: 0 10px;
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-buttons .btn-light {
+    background: #64ffda;
+    color: #0a192f;
+    border: none;
+}
+
+.auth-buttons .btn-outline-light {
     border-color: #64ffda;
-    color: #ffffff;
-    box-shadow: 0 0 0 0.2rem rgba(100, 255, 218, 0.25);
+    color: #64ffda;
 }
 
-.form-control::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+.auth-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
 }
 
-/* Responsive Design for Login Page */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.typing-effect::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Welcome Container for Home and Dashboard */
+.welcome-container {
+    color: #64ffda;
+    animation: fadeInUp 1s ease-out;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.btn-danger {
+    background: #ff6b6b;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.btn-danger:hover {
+    background: #ff5252;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+    transform: translateY(-2px);
+}
+
+.welcome-container h2 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.welcome-message {
+    color: #8892b0;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: #64ffda;
+    font-weight: bold;
+}
+
+.emoji {
+    font-size: 2rem;
+    margin: 0 5px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .login-container {
-        padding: 20px;
-        margin: 20px;
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    .login-container h1 {
-        font-size: 1.5em;
-    }
-
-    .btn {
+    nav .main-nav a {
+        margin: 5px;
         font-size: 0.9em;
-        padding: 10px 20px;
     }
-}
 
-/* General Styles */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow-y: auto; /* Ensure scrolling is enabled */
-}
-
-/* Remove conflicting styles */
-body.login-page, html.login-page,
-body.signup-page, html.signup-page {
-    overflow-y: auto; /* Ensure scrolling for login and signup pages */
-}
-
-/* Ensure all pages are scrollable */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow-y: auto; /* Enable vertical scrolling */
-}
-
-/* Remove conflicting styles for specific pages */
-body.login-page, html.login-page,
-body.signup-page, html.signup-page {
-    overflow-y: auto !important; /* Ensure scrolling for login and signup pages */
-}
-
-/* Ensure responsive design for all pages */
-@media (max-width: 768px) {
-    .container {
+    .container, .docs-container, .contact-container, .submit-contact-container, .about-container, .login-container, .signup-container {
         padding: 15px;
         margin: 20px 10px;
     }
@@ -1236,8 +720,17 @@ body.signup-page, html.signup-page {
         font-size: 20px;
     }
 
-    .btn {
-        font-size: 0.9em;
-        padding: 10px 20px;
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-info {
+        margin-bottom: 15px;
+    }
+
+    .food-item img {
+        width: 100%;
+        height: auto;
     }
 }
