@@ -1,3 +1,4 @@
+<?php include 'db_connect.php'; // Connect to the database ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

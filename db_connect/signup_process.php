@@ -1,21 +1,21 @@
 <?php
-session_start();
-include 'includes/db_connect.php';
+include '../includes/db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $email    = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $age      = (int) $_POST['age'];
+    $weight   = (float) $_POST['weight'];
 
-    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+    $sql = "INSERT INTO user_info (username, email, password, age, weight) 
+            VALUES ('$username', '$email', '$password', $age, $weight)";
+    
     if ($conn->query($sql) === TRUE) {
-        header("Location: login.php?signup=success");
+        header("Location: ../db_connect/login.php");
         exit();
     } else {
-        $error = "Error: " . $conn->error;
+        echo "Error: " . $conn->error;
     }
 }
-
-header("Location: signup.php?error=" . urlencode($error));
-exit();
 ?>

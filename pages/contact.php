@@ -20,6 +20,36 @@
         </div>
 
         <div class="form-group">
+            <label for="weight"><i class="fas fa-weight"></i> Weight (kg)</label>
+            <input type="number" id="weight" name="weight" min="0" step="0.1" required 
+                   placeholder="Enter your weight in kg">
+        </div>
+
+        <div class="form-group">
+            <label for="age"><i class="fas fa-birthday-cake"></i> Age</label>
+            <input type="number" id="age" name="age" min="1" required 
+                   placeholder="Enter your age">
+        </div>
+
+        <div class="form-group">
+            <label for="height"><i class="fas fa-ruler-vertical"></i> Height (cm)</label>
+            <input type="number" id="height" name="height" min="0" step="0.1" required 
+                   placeholder="Enter your height in cm">
+        </div>
+
+        <div class="form-group">
+            <label for="district"><i class="fas fa-map-marker-alt"></i> District</label>
+            <input type="text" id="district" name="district" required 
+                   placeholder="Enter your district">
+        </div>
+
+        <div class="form-group">
+            <label for="country"><i class="fas fa-globe"></i> Country</label>
+            <input type="text" id="country" name="country" required 
+                   placeholder="Enter your country">
+        </div>
+
+        <div class="form-group">
             <label for="message"><i class="fas fa-comment"></i> Your Message</label>
             <textarea id="message" name="message" rows="5" required 
                       placeholder="How can we help you?"></textarea>

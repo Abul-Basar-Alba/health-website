@@ -1,4 +1,4 @@
-<?php include 'includes/index_header.php'; ?>
+<?php include '../includes/index_header.php'; ?>
 
 <body class="signup-page">
     <div class="signup-container">
@@ -16,6 +16,15 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required class="form-control">
             </div>
+            
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="Age" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight (kg)</label>
+                <input type="number" step="0.1" id="weight" name="weight" placeholder="Weight (kg)" required class="form-control">
+            </div>
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
         <p>Already have an account? <a href="login.php">Login here</a></p>
@@ -24,4 +33,4 @@
     <link rel="stylesheet" href="../assets/css/style.css">
 </body>
 
-<?php include 'includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

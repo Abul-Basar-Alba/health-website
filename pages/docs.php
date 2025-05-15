@@ -1,4 +1,4 @@
-<?php include '../includes/header.php'; ?>
+<?php include '../header.php'; ?>
 
 <div class="container docs-container">
 <link rel="stylesheet" href="../assets/css/style.css">
@@ -256,4 +256,4 @@ longer, healthier life.<br><br>
     
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include '..footer.php'; ?>

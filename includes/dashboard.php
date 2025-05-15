@@ -1,6 +1,6 @@
 <?php
 session_start(); // Ensure session is started
-include 'db.php'; 
+include 'db_connect.php'; 
 
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
@@ -16,7 +16,7 @@ unset($_SESSION['just_registered']);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Dashboard - Health and Weight Control</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -87,13 +87,17 @@ unset($_SESSION['just_registered']);
                 <span class="emoji">🎉</span>
                 <h2>Welcome aboard, <?php echo htmlspecialchars($_SESSION['user']); ?>!</h2>
                 <p class="welcome-message">
-                    Thank you for joining us! <br>
-                    Your journey into the world of coding begins here. <br>
-                    <span class="highlight">Let's create something amazing together!</span>
+                    Congratulations on starting your journey towards a healthier lifestyle! <br>
+                    Remember, progress is not always about speed, but consistency. <br>
+                    <span class="highlight">Small steps lead to big results. Keep going!</span>
                 </p>
             <?php else: ?>
                 <h2>Welcome back, <?php echo htmlspecialchars($_SESSION['user']); ?>!</h2>
-                <p class="welcome-message">Great to see you again!</p>
+                <p class="welcome-message">
+                    You're one step closer to achieving your health and fitness goals. <br>
+                    Consistency is key, and you're on the right path! <br>
+                    <span class="highlight">Let's stay motivated and keep making progress!</span>
+                </p>
             <?php endif; ?>
             <a href="logout.php" class="btn btn-danger">Logout</a>
         </div>

@@ -1,4 +1,8 @@
-<?php include 'includes/index_header.php'; ?>
+<?php 
+include '../includes/db_connect.php'; // Connect to the database
+include '../includes/index_header.php';
+ 
+?>
 
 <body class="login-page">
     <div class="login-container">
@@ -18,6 +22,7 @@
     </div>
     <!-- Ensure only the correct CSS file is linked -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </body>
 
-<?php include 'includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

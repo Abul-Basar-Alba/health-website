@@ -1,4 +1,7 @@
-<?php include 'includes/index_header.php'; ?>
+<?php 
+include 'includes/db_connect.php'; // Connect to the database
+include 'includes/index_header.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +21,8 @@
         <h1 class="welcome-text">Welcome to Health Nutrition Guide</h1>
         <p class="sub-text typing-effect">Explore our resources on nutrition, diet, and healthy living</p>
         <div class="auth-buttons">
-            <a href="login.php" class="btn btn-light">Login</a>
-            <a href="signup.php" class="btn btn-outline-light">Sign Up</a>
+            <a href="db_connect/login.php" class="btn btn-light">Login</a>
+            <a href="db_connect/signup.php" class="btn btn-outline-light">Sign Up</a>
         </div>
     </div>
     <style>
