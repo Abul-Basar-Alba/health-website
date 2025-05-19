@@ -34,20 +34,20 @@ $justRegistered = isset($_GET['registered']) && $_GET['registered'] == 'true';
     <form id="healthForm" action="calculate.php" method="POST">
         <div class="form-group">
             <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" name="weight" step="0.1" required class="form-control">
+            <input type="number" id="weight" name="weight" step="0.1" required class="form-control" placeholder="Enter your weight">
         </div>
         <div class="form-group">
             <label for="height">Height (cm):</label>
-            <input type="number" id="height" name="height" step="0.1" required class="form-control">
+            <input type="number" id="height" name="height" step="0.1" required class="form-control" placeholder="Enter your height">
         </div>
         <div class="form-group">
             <label for="age">Age:</label>
-            <input type="number" id="age" name="age" min="1" required class="form-control">
+            <input type="number" id="age" name="age" min="1" required class="form-control" placeholder="Enter your age">
         </div>
         <div class="form-group">
             <label for="gender">Gender:</label>
             <select id="gender" name="gender" required class="form-control">
-                <option value="">Select Gender</option>
+                <option value="" disabled selected>Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
@@ -58,7 +58,7 @@ $justRegistered = isset($_GET['registered']) && $_GET['registered'] == 'true';
     <div class="cta-section">
         <h2>Need Personalized Advice?</h2>
         <p>Our nutrition experts are here to help you achieve your health goals.</p>
-        <a href="pages/contact.php" class="home-contact-btn" aria-label="Contact our experts">
+        <a href="/pages/contact.php" class="home-contact-btn" aria-label="Contact our experts">
             <i class="fas fa-envelope"></i> Contact Our Experts
         </a>
     </div>

@@ -6,7 +6,8 @@
             <p>Phone: +123-456-7890</p>
         </div>
         <p>© 2025 Health Nutrition Guide. All rights reserved.</p>
-        <p><a href="/health-website/pages/contact.php">Contact Us</a></p>
+        <p><a href="/pages/contact.php">Contact Us</a></p>
+        <!-- <p><a href="/health-website/pages/contact.php">Contact Us</a></p> -->
     </div>
 </footer>
 </body>

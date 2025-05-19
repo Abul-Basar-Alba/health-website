@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../includes/header.php';
+include 'includes/header.php';
 
 $records = [];
 if (isset($_SESSION['id'])) {
@@ -96,7 +96,7 @@ $conn->close();
                         <td>ml</td>
                     </tr>
                 </table>
-                <a href="nutrition.php" class="home-contact-btn">Explore Nutrition Guide</a>
+                <a href="/pages/nutrition.php" class="home-contact-btn">Explore Nutrition Guide</a>
             </div>
         <?php endforeach; ?>
     <?php else: ?>
@@ -104,4 +104,4 @@ $conn->close();
     <?php endif; ?>
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include 'includes/footer.php'; ?>
