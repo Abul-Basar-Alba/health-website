@@ -1,0 +1,61 @@
+/* Style for the body with login-page class */
+body.login-page {
+    margin: 0; /* Remove default margins */
+    overflow-y: auto; /* Ensure scrolling if content overflows */
+}
+
+
+/* Login container styling */
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h1 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.login-container p {
+    margin-top: 20px;
+    color: #666;
+}
+
+.login-container a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+.form-control {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+.form-control:focus {
+    background: #fff;
+    border-color: #4CAF50;
+    color: #333;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
+}
+
+.form-control::placeholder {
+    color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 15px;
+        margin: 70px 10px 20px;
+    }
+}

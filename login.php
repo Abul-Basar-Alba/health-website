@@ -7,7 +7,7 @@ if (isset($_SESSION['id'])) {
     exit;
 }
 ?>
-
+<link rel="stylesheet" href="../assets/css/login.css">
 <body class="login-page">
     <div class="login-container">
         <h1>Login</h1>

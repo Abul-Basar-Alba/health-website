@@ -37,18 +37,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-<div class="submit-contact-container">
-    <h1>Contact Submission</h1>
-    <?php if (isset($success)): ?>
-        <p style="color: green;"><?php echo htmlspecialchars($success); ?></p>
-        <a href="../home.php" class="submit-contact-btn"><i class="fas fa-home"></i> Back to Home</a>
-    <?php elseif (isset($error)): ?>
-        <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
-        <a href="contact.php" class="submit-contact-btn"><i class="fas fa-arrow-left"></i> Try Again</a>
-    <?php else: ?>
-        <p>Something went wrong. Please try again.</p>
-        <a href="contact.php" class="submit-contact-btn"><i class="fas fa-arrow-left"></i> Back to Contact Form</a>
-    <?php endif; ?>
-</div>
+<link rel="stylesheet" href="../assets/css/submit_contact.css">
+
+<main>
+    <div class="submit-contact-container">
+        <h1>Contact Submission</h1>
+        <?php if (isset($success)): ?>
+            <p style="color: green;"><?php echo htmlspecialchars($success); ?></p>
+            <a href="../home.php" class="submit-contact-btn"><i class="fas fa-home"></i> Back to Home</a>
+        <?php elseif (isset($error)): ?>
+            <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
+            <a href="contact.php" class="submit-contact-btn"><i class="fas fa-arrow-left"></i> Try Again</a>
+        <?php else: ?>
+            <p>Something went wrong. Please try again.</p>
+            <a href="contact.php" class="submit-contact-btn"><i class="fas fa-arrow-left"></i> Back to Contact Form</a>
+        <?php endif; ?>
+    </div>
+</main>
 
 <?php include '../includes/footer.php'; ?>

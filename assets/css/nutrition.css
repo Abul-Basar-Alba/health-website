@@ -1,0 +1,52 @@
+/* Same as .container from common.css, but can be customized if needed */
+.nutrition-container {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease;
+}
+
+.food-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.food-item img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.food-item h3 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.food-item p {
+    color: #666;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nutrition-container {
+        padding: 15px;
+        margin: 70px 10px 20px;
+    }
+}

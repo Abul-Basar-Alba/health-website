@@ -9,7 +9,7 @@ if (!isset($_SESSION['nutrition_results'])) {
 
 $results = $_SESSION['nutrition_results'];
 ?>
-
+<link rel="stylesheet" href="../assets/css/results.css">
 <div class="container">
     <h1>Your Health and Nutrition Report</h1>
     

@@ -9,7 +9,7 @@ if (!isset($_SESSION['id'])) {
 
 $justRegistered = isset($_GET['registered']) && $_GET['registered'] == 'true';
 ?>
-
+<link rel="stylesheet" href="../assets/css/home.css">
 <div class="container">
     <div class="welcome-container">
         <?php if ($justRegistered): ?>

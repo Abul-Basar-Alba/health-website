@@ -1,0 +1,113 @@
+.content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: url('../index_image/qwen_food.png') no-repeat center center fixed; 
+    background-size: cover; 
+    color: white;
+}
+
+/* Adjust text colors for better readability on background */
+.welcome-text, .sub-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+/* Ensure buttons are visible on the background */
+.auth-buttons .btn-primary {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+}
+
+.auth-buttons .btn-primary:hover {
+    background: linear-gradient(45deg, #558b2f, #33691e);
+}
+
+.bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    z-index: -1;
+}
+
+.welcome-text {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease-out;
+    font-weight: bold;
+}
+
+.sub-text {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease-out 0.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    color: #8892b0;
+}
+
+.auth-buttons {
+    animation: fadeInUp 1s ease-out 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.auth-buttons .btn {
+    margin: 0 10px;
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-buttons .btn-light {
+    background: #64ffda;
+    color: #0a192f;
+    border: none;
+}
+
+.auth-buttons .btn-outline-light {
+    border-color: #64ffda;
+    color: #64ffda;
+}
+
+.auth-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.typing-effect::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+

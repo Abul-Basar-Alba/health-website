@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $conn->close();
 ?>
-
+<link rel="stylesheet" href="../assets/css/signup.css">
 <body class="signup-page">
     <div class="signup-container">
         <h1>Sign Up</h1>

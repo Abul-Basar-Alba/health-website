@@ -1,7 +1,9 @@
 <?php
 include 'includes/db_connect.php';
 include 'includes/header.php';
+
 ?>
+<link rel="stylesheet" href="../assets/css/index.css">
 <div class="content">
     <!-- <img src="index_image/health-nutrition.png" alt="Health Nutrition Guide" class="logo"> -->
     <h1 class="welcome-text">Welcome to Health Nutrition Guide</h1>

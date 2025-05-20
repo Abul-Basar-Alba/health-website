@@ -1,0 +1,128 @@
+/* Global layout */
+body {
+    margin: 0;
+    padding-top: 60px; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto; 
+}
+
+.history-section {
+    margin: 50px 0; 
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); 
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.result-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.result-section h3 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.result-section p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.nutrient-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+}
+
+.nutrient-table th, .nutrient-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.nutrient-table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+.nutrient-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Button styling */
+.home-contact-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.home-contact-btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding-top: 50px; 
+    }
+    .history-section {
+        margin: 30px 10px;
+        padding: 15px;
+    }
+    .result-section {
+        padding: 10px;
+    }
+    .nutrient-table th, .nutrient-table td {
+        padding: 8px;
+        font-size: 12px;
+    }
+    .nutrient-table th {
+        font-size: 14px;
+    }
+    .home-contact-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 40px;
+    }
+    .history-section {
+        margin: 20px 5px;
+        padding: 10px;
+    }
+    .result-section {
+        padding: 8px;
+    }
+    .nutrient-table th, .nutrient-table td {
+        padding: 6px;
+        font-size: 10px;
+    }
+    .nutrient-table th {
+        font-size: 12px;
+    }
+    .home-contact-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}

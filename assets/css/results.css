@@ -1,0 +1,50 @@
+.results-container {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease;
+}
+
+.home-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #8e0ccf, #270dac);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.home-contact-btn:hover {
+    background: linear-gradient(45deg, #e14d03, #acd009);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.home-contact-btn i {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.home-contact-btn:hover i {
+    transform: translateX(5px);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .results-container {
+        padding: 15px;
+        margin: 70px 10px 20px;
+    }
+}

@@ -1,0 +1,120 @@
+.form-section, .history-section, .nutrition-link {
+    margin: 20px 0;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.history-table th, .history-table td {
+    border: 1px solid #ffffff;
+    padding: 8px;
+    text-align: left;
+}
+
+.history-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.nutrient-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.nutrient-table th, .nutrient-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.nutrient-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.home-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #8e0ccf, #270dac);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.home-contact-btn:hover {
+    background: linear-gradient(45deg, #e14d03, #acd009);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.home-contact-btn i {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.home-contact-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Welcome Container for Home and Dashboard */
+.welcome-container {
+    color: #64ffda;
+    animation: fadeInUp 1s ease-out;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.btn-danger {
+    background: #ff6b6b;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.btn-danger:hover {
+    background: #ff5252;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+    transform: translateY(-2px);
+}
+
+.welcome-container h2 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.welcome-message {
+    color: #8892b0;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: #8104d5;
+    font-weight: bold;
+}
+
+.emoji {
+    font-size: 2rem;
+    margin: 0 5px;
+    animation: bounce 1s infinite;
+}

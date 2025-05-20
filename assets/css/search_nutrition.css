@@ -1,0 +1,20 @@
+.nutrition-link {
+    margin: 20px 0;
+}
+
+.nutrient-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.nutrient-table th, .nutrient-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.nutrient-table th {
+    background-color: #4CAF50;
+    color: white;
+}

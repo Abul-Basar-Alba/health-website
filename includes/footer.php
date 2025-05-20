@@ -14,7 +14,9 @@
             <a href="https://www.youtube.com/@Md_Abul_Basar_Alba_Official" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
         <p>© 2025 Health Nutrition Guide. All rights reserved.</p>
-        <p><a href="/pages/contact.php">Contact Us</a></p>
+        <p> <a href="/pages/contact.php" class="home-contact-btn" aria-label="Contact our experts">
+            <i class="fas fa-envelope"></i> Contact us
+        </a></p>
         <!-- <p><a href="/health-website/pages/contact.php">Contact Us</a></p> -->
     </div>
 </footer>
