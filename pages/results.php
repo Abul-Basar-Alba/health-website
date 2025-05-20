@@ -102,6 +102,9 @@ $results = $_SESSION['nutrition_results'];
         <a href="nutrition.php" class="home-contact-btn" aria-label="View nutrition information">
             <i class="fas fa-info-circle"></i> Explore Nutrition Guide
         </a>
+        <a href="../history.php" class="home-contact-btn" aria-label="Lock your history">
+            <i class="fas fa-history"></i> View Your History
+        </a>
     </div>
 </div>
 
