@@ -6,7 +6,7 @@ body, html {
     font-family: Arial, sans-serif;
     background-color: #a5c9e8;
     overflow-y: auto;
-    background: url('../index_image/health-nutrition.png') no-repeat center center fixed; 
+    background: url('../index_image/home.png') no-repeat center center fixed; 
     background-size: cover;
     color: #333;
 }

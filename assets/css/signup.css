@@ -1,16 +1,21 @@
 body.signup-page {
-    background: linear-gradient(135deg, #a5c9e8, #e6f0fa);
+    margin: 0;
     overflow-y: auto;
+    background: url('../index_image/home2.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white; 
 }
 
 .signup-container {
     max-width: 400px;
     margin: 80px auto;
     padding: 30px;
-    background: white;
+    background: rgba(255, 255, 255, 0.9); 
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: relative;
+    z-index: 2; 
 }
 
 .signup-container h1 {
