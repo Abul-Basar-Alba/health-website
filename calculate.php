@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_POST['weight']) || !is_numeric($_POST['weight']) ||
         !isset($_POST['height']) || !is_numeric($_POST['height']) ||
         !isset($_POST['age']) || !is_numeric($_POST['age']) ||
-        !isset($_POST['gender']) || !in_array($_POST['gender'], ['male', 'female'])) {
+        !isset($_POST['gender']) || !in_array($_POST['gender'], ['male', 'female']) ||
+        !isset($_POST['activity_level']) || !in_array($_POST['activity_level'], ['sedentary', 'lightly_active', 'moderately_active', 'very_active'])) {
         $_SESSION['error'] = "Invalid input values";
         header("Location: home.php");
         exit;
@@ -17,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $height_cm = floatval($_POST['height']);
     $age = intval($_POST['age']);
     $gender = $_POST['gender'];
+    $activity_level = $_POST['activity_level'];
     $user_id = isset($_SESSION['id']) ? $_SESSION['id'] : null;
 
     // Calculate BMI
@@ -42,6 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $bmr = 10 * $weight + 6.25 * $height_cm - 5 * $age - 161;
     }
 
+    // Calculate Total Calories (TDEE) based on activity level
+    $activity_factors = [
+        'sedentary' => 1.2,
+        'lightly_active' => 1.375,
+        'moderately_active' => 1.55,
+        'very_active' => 1.725
+    ];
+    $total_calories = $bmr * $activity_factors[$activity_level];
+
     // Calculate nutrient needs
     $protein = $weight * 1.2;
     $calcium = $age > 50 ? 1200 : 1000;
@@ -54,14 +65,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $water = $weight * 35;
 
     // Store in database
-    $stmt = $conn->prepare("INSERT INTO nutrition_needs (user_id, weight, height, age, gender, bmi, bmr, protein, calcium, vitamin_c, vitamin_d, fiber, iron, magnesium, potassium, water) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO nutrition_needs (user_id, weight, height, age, gender, activity_level, bmi, bmr, total_calories, protein, calcium, vitamin_c, vitamin_d, fiber, iron, magnesium, potassium, water) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     if (!$stmt) {
         $_SESSION['error'] = "Database preparation failed: " . $conn->error;
         header("Location: home.php");
         exit;
     }
 
-    $stmt->bind_param("iddisdidiiiiiiii", $user_id, $weight, $height_cm, $age, $gender, $bmi, $bmr, $protein, $calcium, $vitamin_c, $vitamin_d, $fiber, $iron, $magnesium, $potassium, $water);
+    $stmt->bind_param("iddisssdidiiiiiiii", $user_id, $weight, $height_cm, $age, $gender, $activity_level, $bmi, $bmr, $total_calories, $protein, $calcium, $vitamin_c, $vitamin_d, $fiber, $iron, $magnesium, $potassium, $water);
     if (!$stmt->execute()) {
         $_SESSION['error'] = "Database insertion failed: " . $stmt->error;
         header("Location: home.php");
@@ -77,9 +88,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'height' => $height_cm,
         'age' => $age,
         'gender' => $gender,
+        'activity_level' => $activity_level,
         'bmi' => round($bmi, 1),
         'health_condition' => $health_condition,
         'bmr' => round($bmr, 1),
+        'total_calories' => round($total_calories, 1),
         'protein' => round($protein, 1),
         'calcium' => $calcium,
         'vitamin_c' => $vitamin_c,

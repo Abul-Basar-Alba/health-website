@@ -6,7 +6,7 @@ body, html {
     font-family: Arial, sans-serif;
     background-color: #a5c9e8;
     overflow-y: auto;
-    background: url('../index_image/home.png') no-repeat center center fixed; 
+    background: url('../index_image/health-nutrition.png') no-repeat center center fixed; 
     background-size: cover;
     color: #333;
 }
@@ -80,7 +80,7 @@ nav .main-nav a:hover i {
     max-width: 800px;
     margin: 80px auto 40px;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.911);
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.8s ease;
@@ -98,13 +98,14 @@ nav .main-nav a:hover i {
 }
 
 .container p {
-    color: #666;
+    color: #000000;
     margin-bottom: 20px;
     line-height: 1.6;
     text-align: left;
 }
 
 .container ul {
+    color: #000000;
     margin-left: 20px;
     line-height: 1.6;
     text-align: left;
@@ -119,6 +120,7 @@ nav .main-nav a:hover i {
 .container a:hover {
     color: #45a049;
 }
+
 
 
 body {
@@ -278,6 +280,7 @@ footer a:hover {
     background-color: #5a6268;
     transform: translateY(-2px);
 }
+
 
 /* Animation */
 @keyframes fadeIn {

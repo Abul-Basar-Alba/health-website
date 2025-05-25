@@ -22,9 +22,11 @@ $results = $_SESSION['nutrition_results'];
         <p><strong>Height:</strong> <?php echo $results['height']; ?> cm</p>
         <p><strong>Age:</strong> <?php echo $results['age']; ?></p>
         <p><strong>Gender:</strong> <?php echo ucfirst($results['gender']); ?></p>
+        <p><strong>Activity Level:</strong> <?php echo ucfirst(str_replace('_', ' ', $results['activity_level'])); ?></p>
         <p><strong>BMI:</strong> <?php echo $results['bmi']; ?></p>
         <p><strong>Health Status:</strong> <?php echo $results['health_condition']; ?></p>
         <p><strong>BMR (Basal Metabolic Rate):</strong> <?php echo $results['bmr']; ?> kcal/day</p>
+        <p><strong>Total Daily Calories (TDEE):</strong> <?php echo $results['total_calories']; ?> kcal/day</p>
         <?php
         $bmi_message = '';
         if ($results['health_condition'] == 'Underweight') {

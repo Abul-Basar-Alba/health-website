@@ -2,6 +2,7 @@
 session_start();
 include 'includes/header.php';
 
+include 'includes/db_connect.php'; // ডাটাবেস কানেকশন যোগ করা হয়েছে
 $records = [];
 if (isset($_SESSION['id'])) {
     $stmt = $conn->prepare("SELECT * FROM nutrition_needs WHERE user_id = ? ORDER BY created_at DESC");
@@ -28,6 +29,7 @@ $conn->close();
                     <p><strong>Height:</strong> <?php echo $record['height']; ?> cm</p>
                     <p><strong>Age:</strong> <?php echo $record['age']; ?></p>
                     <p><strong>Gender:</strong> <?php echo ucfirst($record['gender']); ?></p>
+                    <p><strong>Activity Level:</strong> <?php echo ucfirst(str_replace('_', ' ', $record['activity_level'])); ?></p>
                     <p><strong>BMI:</strong> <?php echo $record['bmi']; ?></p>
                     <p><strong>Health Status:</strong> 
                         <?php
@@ -44,6 +46,7 @@ $conn->close();
                         ?>
                     </p>
                     <p><strong>BMR:</strong> <?php echo $record['bmr']; ?> kcal/day</p>
+                    <p><strong>Total Daily Calories (TDEE):</strong> <?php echo $record['total_calories']; ?> kcal/day</p>
                     <h4>Daily Nutrient Needs</h4>
                     <table class="nutrient-table">
                         <tr>

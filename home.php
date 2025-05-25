@@ -52,6 +52,16 @@ $justRegistered = isset($_GET['registered']) && $_GET['registered'] == 'true';
                 <option value="female">Female</option>
             </select>
         </div>
+        <div class="form-group">
+            <label for="activity_level">Activity Level:</label>
+            <select id="activity_level" name="activity_level" required class="form-control">
+                <option value="" disabled selected>Select Activity Level</option>
+                <option value="sedentary">Sedentary (little or no exercise)</option>
+                <option value="lightly_active">Lightly Active (light exercise/sports 1-3 days/week)</option>
+                <option value="moderately_active">Moderately Active (moderate exercise/sports 3-5 days/week)</option>
+                <option value="very_active">Very Active (hard exercise/sports 6-7 days/week)</option>
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary" aria-label="Calculate nutrient needs">Calculate</button>
     </form>
 
