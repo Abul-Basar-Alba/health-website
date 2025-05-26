@@ -1,11 +1,15 @@
 body {
-    margin-top: 60px; /* নেভিগেশন বারের উচ্চতা অনুযায়ী মার্জিন */
+    margin-top: 60px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    flex: 1;
 }
 
 .section {
@@ -41,6 +45,9 @@ button:hover {
     background-color: #0056b3;
 }
 
-.error-messages {
-    margin-bottom: 20px;
+footer {
+    margin-top: auto;
+    padding: 10px;
+    background-color: #f8f9fa;
+    text-align: center;
 }

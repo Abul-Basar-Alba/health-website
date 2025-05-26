@@ -1,8 +1,6 @@
 <?php
 session_start();
 include '../includes/db_connect.php';
-require '../vendor/autoload.php';
-$config = include('../config.php');
 
 if (!isset($_SESSION['id'])) {
     header("Location: /login.php");
@@ -11,17 +9,26 @@ if (!isset($_SESSION['id'])) {
 
 $user_id = $_SESSION['id'];
 $is_admin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
-$errors = []; // Error messages storage
+$errors = [];
 
-// Pusher initialization
-$pusher = new Pusher\Pusher(
-    $config['pusher']['key'],
-    $config['pusher']['secret'],
-    $config['pusher']['app_id'],
-    $config['pusher']['options']
-);
+// অ্যাডমিনের ID ফেচ করা
+$admin_id = null;
+if (!$is_admin) {
+    $stmt = $conn->prepare("SELECT id FROM users WHERE role = 'admin' LIMIT 1");
+    if (!$stmt) {
+        $errors[] = "Database error: Failed to prepare query for admin ID.";
+    } else {
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $admin = $result->fetch_assoc();
+        $admin_id = $admin ? $admin['id'] : null;
+        $stmt->close();
+        if (!$admin_id) {
+            $errors[] = "No admin found in the database.";
+        }
+    }
+}
 
-// Handle public message
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['public_message'])) {
     $message = trim($_POST['public_message']);
 
@@ -29,44 +36,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['public_message'])) {
         $errors[] = "Public message cannot be empty.";
     } else {
         $stmt = $conn->prepare("INSERT INTO public_messages (user_id, message) VALUES (?, ?)");
-        $stmt->bind_param("is", $user_id, $message);
-        $stmt->execute();
-        $stmt->close();
-
-        $pusher->trigger('public-channel', 'new-message', [
-            'user_id' => $user_id,
-            'message' => $message,
-            'created_at' => date('Y-m-d H:i:s')
-        ]);
+        if (!$stmt) {
+            $errors[] = "Database error: Failed to prepare query for public message.";
+        } else {
+            $stmt->bind_param("is", $user_id, $message);
+            if (!$stmt->execute()) {
+                $errors[] = "Database error: Failed to insert public message.";
+            }
+            $stmt->close();
+        }
     }
 }
 
-// Handle private message
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['private_message'])) {
     $message = trim($_POST['private_message']);
-    $admin_id = 1;
 
     if (empty($message)) {
         $errors[] = "Private message cannot be empty.";
+    } elseif ($admin_id === null) {
+        $errors[] = "Cannot send message: Admin ID not found.";
     } else {
         $stmt = $conn->prepare("INSERT INTO private_messages (user_id, admin_id, message) VALUES (?, ?, ?)");
-        $stmt->bind_param("iis", $user_id, $admin_id, $message);
-        $stmt->execute();
-        $stmt->close();
-
-        $pusher->trigger('private-channel', 'new-private-message', [
-            'user_id' => $user_id,
-            'message' => $message,
-            'created_at' => date('Y-m-d H:i:s')
-        ]);
+        if (!$stmt) {
+            $errors[] = "Database error: Failed to prepare query for private message.";
+        } else {
+            $stmt->bind_param("iis", $user_id, $admin_id, $message);
+            if (!$stmt->execute()) {
+                $errors[] = "Database error: Failed to insert private message.";
+            }
+            $stmt->close();
+        }
     }
 }
 
-// Fetch public messages with usernames
 $stmt = $conn->prepare("SELECT pm.*, u.username FROM public_messages pm JOIN users u ON pm.user_id = u.id ORDER BY pm.created_at DESC");
-$stmt->execute();
-$public_messages = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-$stmt->close();
+if (!$stmt) {
+    $errors[] = "Database error: Failed to prepare query for public messages.";
+} else {
+    $stmt->execute();
+    $public_messages = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    $stmt->close();
+}
+
+// ইউজারের পাঠানো প্রাইভেট মেসেজ এবং অ্যাডমিনের রিপ্লাই ফেচ করা
+$stmt = $conn->prepare("SELECT pm.*, u.username FROM private_messages pm JOIN users u ON pm.admin_id = u.id WHERE pm.user_id = ? ORDER BY pm.created_at DESC");
+if (!$stmt) {
+    $errors[] = "Database error: Failed to prepare query for private messages.";
+} else {
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $private_messages = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    $stmt->close();
+}
 
 $conn->close();
 ?>
@@ -78,7 +99,6 @@ $conn->close();
     <title>Messaging</title>
     <link rel="stylesheet" href="/assets/css/messaging.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 </head>
 <body>
     <?php include '../includes/header.php'; ?>
@@ -114,33 +134,26 @@ $conn->close();
                 <textarea name="private_message" placeholder="Send a private message to admin..." required></textarea>
                 <button type="submit">Send Message</button>
             </form>
+            <div id="private-messages">
+                <h3>Your Private Messages</h3>
+                <?php if (empty($private_messages)): ?>
+                    <p>No private messages found.</p>
+                <?php else: ?>
+                    <?php foreach ($private_messages as $msg): ?>
+                        <div class="message">
+                            <p>Sent to Admin at <?php echo $msg['created_at']; ?></p>
+                            <p>Message: <?php echo htmlspecialchars($msg['message']); ?></p>
+                            <?php if ($msg['reply']): ?>
+                                <p>Reply from Admin: <?php echo htmlspecialchars($msg['reply']); ?> (Replied at <?php echo $msg['updated_at']; ?>)</p>
+                            <?php else: ?>
+                                <p>No reply yet.</p>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
-
-    <script>
-        Pusher.logToConsole = true;
-        var pusher = new Pusher('<?php echo $config['pusher']['key']; ?>', {
-            cluster: '<?php echo $config['pusher']['cluster']; ?>'
-        });
-
-        var channel = pusher.subscribe('public-channel');
-        channel.bind('new-message', function(data) {
-            var messagesDiv = document.getElementById('public-messages');
-            var stmt = new XMLHttpRequest();
-            stmt.open('GET', 'get_username.php?user_id=' + data.user_id, true);
-            stmt.onload = function() {
-                if (stmt.status == 200) {
-                    var username = JSON.parse(stmt.responseText).username;
-                    var newMessage = document.createElement('div');
-                    newMessage.className = 'message';
-                    newMessage.innerHTML = `<p>${data.message} (Posted by ${username} at ${data.created_at})</p>`;
-                    messagesDiv.insertBefore(newMessage, messagesDiv.firstChild);
-                }
-            };
-            stmt.send();
-        });
-    </script>
-
     <?php include '../includes/footer.php'; ?>
 </body>
 </html>

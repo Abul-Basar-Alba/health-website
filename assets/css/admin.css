@@ -1,11 +1,15 @@
 body {
     margin-top: 60px; /* নেভিগেশন বারের উচ্চতা অনুযায়ী মার্জিন */
+    min-height: 100vh; /* পুরো পেজের উচ্চতা নিশ্চিত করা */
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    flex: 1; /* কনটেইনারকে ফ্লেক্স করে ফুটারকে নিচে ঠেলে দেওয়া */
 }
 
 .message {
@@ -35,4 +39,11 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+footer {
+    margin-top: auto; /* ফুটারকে সবসময় নিচে রাখা */
+    padding: 10px;
+    background-color: #f8f9fa;
+    text-align: center;
 }

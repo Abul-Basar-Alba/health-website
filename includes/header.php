@@ -1,6 +1,8 @@
 <?php
 //session_start();
 include 'db_connect.php';
+echo "Session ID: " . ($_SESSION['id'] ?? 'Not set') . "<br>";
+echo "Session Role: " . ($_SESSION['role'] ?? 'Not set') . "<br>";
 ?>
 <header>
     <nav>
@@ -14,7 +16,7 @@ include 'db_connect.php';
             <?php if (isset($_SESSION['id'])): ?>
                 <a href="/pages/messaging.php"><i class="fas fa-comments"></i> Messaging</a>
                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-                    <a href="/pages/sudo_check.php"><i class="fas fa-user-shield"></i> Admin</a>
+                    <a href="/pages/admin_panel.php"><i class="fas fa-user-shield"></i> Admin</a>
                 <?php endif; ?>
                 <a href="/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
             <?php else: ?>
