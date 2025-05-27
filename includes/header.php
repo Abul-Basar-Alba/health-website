@@ -6,6 +6,7 @@ echo "Session Role: " . ($_SESSION['role'] ?? 'Not set') . "<br>";
 ?>
 <header>
     <nav>
+        <div class="logo"></div>
         <div class="main-nav">
             <a href="/home.php"><i class="fas fa-home"></i> Home</a>
             <a href="/pages/docs.php"><i class="fas fa-book"></i> Docs</a>
