@@ -14,6 +14,7 @@ echo "Session Role: " . ($_SESSION['role'] ?? 'Not set') . "<br>";
             <a href="/pages/recommendations.php"><i class="fas fa-clipboard-list"></i> Recommendations</a>
             <a href="/pages/about.php"><i class="fas fa-info-circle"></i> About</a>
             <a href="/pages/contact.php"><i class="fas fa-envelope"></i> Contact</a>
+            <!-- <a href="/pages/faq.php"><i class="fas fa-question-circle"></i> FAQ</a> -->
             <?php if (isset($_SESSION['id'])): ?>
                 <a href="/pages/messaging.php"><i class="fas fa-comments"></i> Messaging</a>
                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
