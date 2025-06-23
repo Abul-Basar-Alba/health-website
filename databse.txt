@@ -1,0 +1,103 @@
+-- Create the database
+CREATE DATABASE IF NOT EXISTS health_db;
+USE health_db;
+
+-- Set character encoding for proper Unicode support
+ALTER DATABASE health_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Table: users
+-- Stores user information including authentication details and sudo password
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL, -- Hashed password
+    role ENUM('admin', 'user') DEFAULT 'user', -- Role for admin/user distinction
+    sudo_password VARCHAR(255) DEFAULT NULL, -- Optional sudo password (hashed)
+    age INT NOT NULL CHECK (age > 0),
+    weight DECIMAL(5,1) NOT NULL CHECK (weight > 0),
+    is_verified BOOLEAN DEFAULT FALSE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table: nutrition_needs
+-- Stores calculated nutrition data for each user based on their input
+DROP TABLE IF EXISTS nutrition_needs;
+CREATE TABLE nutrition_needs (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    weight DECIMAL(5,1) NOT NULL CHECK (weight > 0),
+    height DECIMAL(5,1) NOT NULL CHECK (height > 0),
+    age INT NOT NULL CHECK (age > 0),
+    gender ENUM('male', 'female') NOT NULL,
+    activity_level ENUM('sedentary', 'lightly_active', 'moderately_active', 'very_active') NOT NULL,
+    bmi DECIMAL(5,1) NOT NULL,
+    bmr DECIMAL(7,1) NOT NULL,
+    total_calories DECIMAL(7,1) NOT NULL,
+    protein DECIMAL(7,1) NOT NULL,
+    calcium INT NOT NULL,
+    vitamin_c INT NOT NULL,
+    vitamin_d DECIMAL(5,1) NOT NULL,
+    fiber INT NOT NULL,
+    iron INT NOT NULL,
+    magnesium INT NOT NULL,
+    potassium INT NOT NULL,
+    water INT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Table: contacts
+-- Stores contact form submissions from users
+DROP TABLE IF EXISTS contacts;
+CREATE TABLE contacts (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INT DEFAULT NULL, -- Optional link to users table
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    weight DECIMAL(5,1) NOT NULL CHECK (weight > 0),
+    age INT NOT NULL CHECK (age > 0),
+    height DECIMAL(5,1) NOT NULL CHECK (height > 0),
+    district VARCHAR(100) NOT NULL,
+    country VARCHAR(100) NOT NULL,
+    message TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+-- Table: private_messages
+-- Stores private messages between users and admin
+DROP TABLE IF EXISTS private_messages;
+CREATE TABLE private_messages (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    admin_id INT NOT NULL,
+    message TEXT NOT NULL,
+    reply TEXT DEFAULT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (admin_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Table: public_messages
+-- Stores public messages visible to all users
+DROP TABLE IF EXISTS public_messages;
+CREATE TABLE public_messages (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    message TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Optional: Add indexes for better performance
+CREATE INDEX idx_users_username ON users(username);
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_nutrition_needs_user_id ON nutrition_needs(user_id);
+CREATE INDEX idx_contacts_user_id ON contacts(user_id);
+CREATE INDEX idx_private_messages_user_id ON private_messages(user_id);
+CREATE INDEX idx_private_messages_admin_id ON private_messages(admin_id);
+CREATE INDEX idx_public_messages_user_id ON public_messages(user_id);
+UPDATE users SET role = 'admin' WHERE id = 1; -- Replace 1 with the desired user ID
