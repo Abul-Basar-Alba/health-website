@@ -36,7 +36,9 @@ php -S localhost:3000<br><br>
 👮‍♂️ Admin Panel: Manage users and messages.<br>
 📅 History Tracking: View your past nutrition records.<br><br>
 🎬 Demo<br>
-https://abul-basar.rf.gd/<br><br>
+🌐 Website: https://abul-basar.rf.gd/<br>
+🎥 YouTube: https://www.youtube.com/watch?v=YeB7FKlevRM&t=188s<br>
+💼 LinkedIn: https://www.linkedin.com/feed/update/urn:li:activity:7344118502418468864/<br><br>
 
 🌈 Imagine a sleek interface with colorful charts and interactive forms—coming soon! 🎥<br><br>
 
@@ -65,10 +67,10 @@ Found a bug? 😱 Report it here with details! 🐞<br><br>
 🤗 Contributing<br><br>
 Love this project? ❤️ Fork it, make changes, and submit a pull request! 🌿<br><br>
 
+🚀 Let’s Connect!<br>
 📧 Contact: ug2102036@cse.pstu.ac.bd<br>
-📞 Phone: 01852509642<br>
-📅 Last Updated<br>
-🔥 As of 12:25 AM +06, Thursday, June 26, 2025! 🌅<br><br>
-
-📜 License<br>
-This project is under the MIT License - see the LICENSE.md file for details. 🎉<br><br>
+🌐 Website: https://abul-basar.rf.gd/?i=1<br>
+📱 Instagram:   [/ @mdabulbasaralba](https://www.instagram.com/mdabulbasaralba/) <br>
+🐦 Twitter: https://x.com/basar33551 <br>
+🎥 YouTube: Subscribe here    / @md_abul_basar_alba_official  <br>
+💼 LinkedIn: Connect   / abul-basar-alba-2067a7324  <br>
